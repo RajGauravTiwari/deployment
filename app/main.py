@@ -6,6 +6,10 @@ import random
 from io import BytesIO
 from app import utils
 from app.mongodb import collection
+from fastapi.middleware.cors import CORSMiddleware
+
+
+
 
 # Cloudinary config
 import cloudinary
@@ -20,7 +24,7 @@ app = FastAPI()
 # CORS
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],  # React frontend URL
+    allow_origins=["https://spiffy-treacle-e71820.netlify.app/"],  # React frontend URL
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
@@ -93,3 +97,4 @@ async def get_all_uploads():
 async def get_scores(job_role: str):
     docs = await collection.find({"job_role": job_role}).to_list(length=100)
     return [fix_mongo_ids(doc) for doc in docs]
+
