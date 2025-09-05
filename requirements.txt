@@ -5,3 +5,5 @@ cloudinary
 PyPDF2
 docx2txt
 pymongo
+motor
+
