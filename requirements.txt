@@ -1,0 +1,7 @@
+fastapi
+uvicorn[standard]
+python-multipart
+cloudinary
+PyPDF2
+docx2txt
+pymongo
